@@ -1,0 +1,45 @@
+body{
+	width: 800px;
+	/*overflow-x: auto;*/
+	background-image: url("ui/popup_background.png");
+    background-repeat: repeat;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+table {
+    border:none !important;
+    border-spacing: 10px 0 !important;
+    /* override bootstrap default */
+    border-collapse:separate !important;
+    width: 98%;
+}
+        
+hr {
+    height: 2px;
+    background-color:#555;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 90%;
+}
+
+.alert {
+    margin: 5px 15px 5px 10px;
+}
+
+.hidden {
+	display: none;
+}
+
+ul {
+    height: 150px;
+    overflow: auto;   
+}
+
+#status {
+    font-weight: normal;
+}
+
+.modal-dialog .btn:focus {
+  outline: none;
+}

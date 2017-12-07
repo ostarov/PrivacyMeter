@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PrivacyMeter's Config</title>
+    <link rel="stylesheet" href="ui/bootstrap.min.css">
+    <style>
+        .whitetable > tbody > tr > td,
+        .whitetable > tbody > tr > th {
+            border-top: none;
+        }
+    </style>
+    <script src="ui/jquery-3.1.1.min.js"></script>
+    <script src="ui/bootstrap.min.js"></script>
+</head>
+<body>
+    
+<div class="container">
+    <form>
+        <div class="page-header">
+            <h2>Thank you for using PrivacyMeter! <code><small>Privacy online matters, and now can be metered</small></code></h2>
+        </div>
+        <div class="alert alert-success text-justify">
+            
+            <p><u><i>PrivacyMeter</i></u> provides a real-time privacy quantification for the modern Web. It is a browser extension that, on-the-fly, computes a relative privacy score for any website that a user is visiting. This score is computed based on each website's privacy practices and how these compare to the privacy practices of many other pre-analyzed websites. Currently, it supports four main widgets, analyzing the trackers present on the page, fingerprinting activity, amount of third-party content, and leaky web forms. In addition, the extension provides users with contextual information about all the discovered privacy issues.
+                    
+            <p><u><i>PrivacyMeter</i></u> is a non-commercial research tool developed by <a href="http://pragsec.com">PragSec Lab</a> at Stony Brook University, and proudly powered by EasyList (<a href="https://easylist.to">https://easylist.to</a>), Adblock Plus (<a href="https://adblockplus.org/">https://adblockplus.org</a>), Web of Trust "MyWOT" (<a href="https://www.mywot.com">https://www.mywot.com</a>), IP2Location LITE (<a href="http://lite.ip2location.com">http://lite.ip2location.com</a>), Alexa Top Sites (<a href="https://www.alexa.com/topsites">https://www.alexa.com/topsites</a>), and Highcharts (<a href="https://www.highcharts.com">https://www.highcharts.com</a>).
+            
+        </div>
+        
+        <table class = "table whitetable">
+            <tr>
+                <td><div class="checkbox-inline"><label><input type="checkbox" id="crowdsourcing">Please select this checkbox to allow us to anonymously collect the privacy statistics from websites you visit. Help us to improve PrivacyMeter!</label></div></td>
+            </tr>
+            <tr>      
+                <td><p><mark><em><u>No personally identifiable information will be collected, and no visited URLs will be shared with third-parties!</u> If "crowdsourcing is enabled", the extension reports to its backend the following privacy practices per web page: list of present trackers, fingerprinting APIs called, list of third-party iframes, and the list of leaky web forms.<em></mark></p>
+                    <p><mark><em><u>Important</u>: even without "crowdsourcing" enabled, extension caches information about trackers on its backend (of course, without any information about actually visited websites).<em></mark></p>
+                </td>
+            </tr>
+        </table>
+            
+        <p><big>Choose setting per each group of privacy features that suits you most, or just leave as is:</big><p>
+        <table class = "table">
+            <tr>
+                <th class="col-md-1">Privacy widget</th>
+                <th class="text-center col-md-1">Comparative method</th>
+                <th class="text-center col-md-1">Base "danger" level</th>
+                <th class="text-center col-md-1">Additional warnings</th>
+            </tr>
+            <tr>
+                <td>Intrusive Web Trackers</td>
+                <td class="text-center">
+                    <select class="form-control" id="trackers_engine">
+                        <option value="sigma">Mean-based (+ SD, + 2*SD)</option>
+                        <option value="quartile">Median-based (third quartile)</option>
+                    </select>
+                </td>
+                <td class="text-center">
+                    <select class="form-control" id="trackers_baseline">
+                        <option value="green">SAFE</option>
+                        <option value="orange">CONSIDERABLE</option>
+                        <option value="red">DANGEROUS</option>
+                    </select>
+                </td>
+                <td class="text-center"><div class="checkbox-inline"><label><input type="checkbox" id="trackers_issues">Enabled</label></div></td>
+            </tr>
+            <tr>
+                <td>Browser / device Fingerprinting</td>
+                <td class="text-center">
+                    <select class="form-control" id="fingerprinting_engine">
+                        <option value="sigma">Mean-based (+ SD, + 2*SD)</option>
+                        <option value="quartile">Median-based (third quartile)</option>
+                    </select>
+                </td>
+                <td class="text-center">
+                    <select class="form-control" id="fingerprinting_baseline">
+                        <option value="green">SAFE</option>
+                        <option value="orange">CONSIDERABLE</option>
+                        <option value="red">DANGEROUS</option>
+                    </select>
+                </td>
+                <td class="text-center"><div class="checkbox-inline"><label><input type="checkbox" id="fingerprinting_issues">Enabled</label></div></td>
+            </tr>
+            <tr>
+                <td>Third-party Content (iframes)</td>
+                <td class="text-center">
+                    <select class="form-control" id="thirdparties_engine">
+                        <option value="sigma">Mean-based (+ SD, + 2*SD)</option>
+                        <option value="quartile">Median-based (third quartile)</option>
+                    </select>
+                </td>
+                <td class="text-center">
+                    <select class="form-control" id="thirdparties_baseline">
+                        <option value="green">SAFE</option>
+                        <option value="orange">CONSIDERABLE</option>
+                        <option value="red">DANGEROUS</option>
+                    </select>
+                </td>
+                <td class="text-center"><div class="checkbox-inline"><label><input type="checkbox" id="thirdparties_issues">Enabled</label></div></td>
+            </tr>
+            <tr>
+                <td>"Leaky" Web Forms</td>
+                <td class="text-center">
+                    <select class="form-control" id="leakyforms_engine">
+                        <option value="sigma">Mean-based (+ SD, + 2*SD)</option>
+                        <option value="quartile">Median-based (third quartile)</option>
+                    </select>
+                </td>
+                <td class="text-center">
+                    <select class="form-control" id="leakyforms_baseline">
+                        <option value="green">SAFE</option>
+                        <option value="orange">CONSIDERABLE</option>
+                        <option value="red">DANGEROUS</option>
+                    </select>
+                </td>
+                <td class="text-center"><div class="checkbox-inline"><label><input type="checkbox" id="leakyforms_issues">Enabled</label></div></td>
+            </tr>
+        </table>
+        
+        <p><big>Enable / disable additional functionality by PrivacyMeter:</big></p>
+        <table class = "table">
+            <tr>
+                <td></td>
+                <td><div class="checkbox-inline"><label><input type="checkbox" id="mark_forms">Highlight "leaky" web forms with red border on the visited pages</label></div></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><div class="checkbox-inline"><label><input type="checkbox" id="warn_security">Notify about poor general security practices of the visited website</label></div></td>
+            </tr>
+        </table>
+        
+        <button type="button" class="btn btn-default btn-block" id="save">Save</button>
+    </form>
+    <div id="status"></div>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+</div>
+
+<script src="options.js"></script>
+</body>
+</html>
